@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rack-cas'
 gem "haml-rails", "~> 0.9"
 gem 'aws-sdk', '~> 2'
+gem 'dotenv'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -46,3 +47,4 @@ group :development, :test do
   gem 'spring'
 end
 
+gem "rspec-rails", :group => [:development, :test]
