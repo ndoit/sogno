@@ -1,7 +1,12 @@
-%div#instance_list
+%table#instance_list.table.table-striped.table-hover.table-bordered
+	%tbody
+	%tr
+		%th Name
+		%th Instance ID
+		%th Controls
 	- @instance_list.each do |instance|
-		%div.instance_row
-			%div.instance_name= instance.name
-			%div.instance_id= instance.id
-			%div.controls= button_to "Wake Up", instance_start_path( instance_id: instance.id ), remote: true
+		%tr.instance_row
+			%td.instance_name= instance.name
+			%td.instance_id= instance.id
+			%td.controls= button_to "Wake Up", instance_start_path( instance_id: instance.id ), remote: true
 				
