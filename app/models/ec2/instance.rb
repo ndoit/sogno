@@ -16,7 +16,16 @@ class Ec2::Instance
 
 	def tag_value( key )
 		key = key.to_s
-		@raw[:tags].map { |n| n.value if n.key == key }[0]
+		val = @raw[:tags].select { |n|  n.key == key }[0].value
+		if val
+			val = val.gsub /^"/, ''
+			val = val.gsub /"$/, ''
+			val.strip
+		end
+	end
+
+	def start
+		
 	end
 
 end

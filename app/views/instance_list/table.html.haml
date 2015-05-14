@@ -1,0 +1,5 @@
+%div#instance_list
+	- @instance_list.each do |instance|
+		%div.instance_row
+			%div.instance_name= instance.name
+			%div.instance_id= instance.id

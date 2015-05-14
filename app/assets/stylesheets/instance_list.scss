@@ -1,0 +1,14 @@
+#instance_list {
+	color: red;
+	.instance_row{
+		height:auto;
+		overflow:auto;
+	}
+	.instance_row {
+		div {
+			float:left;
+			width:20%;
+		}
+
+	}
+}
