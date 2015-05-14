@@ -3,3 +3,5 @@
 		%div.instance_row
 			%div.instance_name= instance.name
 			%div.instance_id= instance.id
+			%div.controls= button_to "Wake Up", instance_start_path( instance_id: instance.id ), remote: true
+				

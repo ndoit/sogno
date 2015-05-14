@@ -1,8 +1,14 @@
 #instance_list {
-	color: red;
+
+	width:80%;
+
 	.instance_row{
 		height:auto;
 		overflow:auto;
+		
+	}
+	.instance_row:hover{
+		
 	}
 	.instance_row {
 		div {

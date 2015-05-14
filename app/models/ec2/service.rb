@@ -17,4 +17,10 @@ class Ec2::Service
 
 	end
 
+
+	def start_instance( instance_id ) 
+		@@ec2.start_instances( instance_ids: [instance_id], additional_info: "", dry_run: false )
+	end
+
+
 end

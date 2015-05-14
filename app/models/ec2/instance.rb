@@ -24,8 +24,4 @@ class Ec2::Instance
 		end
 	end
 
-	def start
-		
-	end
-
 end
