@@ -1,6 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+require 'dotenv' ; Dotenv.load ".env.local", ".env.#{Rails.env}"
 
 require 'rack-cas/session_store/active_record'
 
