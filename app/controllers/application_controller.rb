@@ -5,8 +5,10 @@ class ApplicationController < ActionController::Base
   before_action :authenticate
 
   def authenticate
+  	
   	if ( !request.session.has_key?("cas") )
-  		render status: 401
+  		puts "rendering 401"
+  		render status: 401, text: ""
 	end
   end
 
