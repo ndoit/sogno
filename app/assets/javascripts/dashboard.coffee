@@ -3,5 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready ->
-	$('#instance_list').html("<img src='/assets/spinner.gif'/>")
-	$('#instance_list').load("instance_table/stopped")
+	$('div#instance_list').html("<img src='/assets/spinner.gif'/>")
+	$('div#instance_list').load "instance_table/stopped", ->
+		$(".tablesorter").tablesorter({widgets: ["zebra", "filter"]})
+
+	
