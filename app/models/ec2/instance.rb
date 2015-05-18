@@ -6,6 +6,10 @@ class Ec2::Instance
 		['Billing', 'FQDN', 'Contact', 'Service']
 	end
 
+	def self.states
+		["stopped", "running", "terminated"]
+	end
+
 	def initialize( instance )
 		@raw = instance
 	end

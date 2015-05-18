@@ -3,8 +3,14 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready ->
-	$('div#instance_list').html("<img src='/assets/spinner.gif'/>")
-	$('div#instance_list').load "instance_table/stopped", -> setup_table( $('table#instance_list') )
+  load_instance_state("stopped")
+  $('.dropdown-toggle').dropdown()
+
+  $('.state-menu li').click ->
+    load_instance_state($(this).attr('state'))
+
+
+
 
 setup_table = (selector) ->
   selector.tablesorter({
@@ -17,5 +23,9 @@ setup_table = (selector) ->
       columnSelector_priority : 'data-priority'
     }
   })
+
+load_instance_state = (state) ->
+  $('div#instance_list').html("<img src='/assets/spinner.gif'/>")
+  $('div#instance_list').load "instance_table/" + state, -> setup_table( $('table#instance_list') )
 
 	

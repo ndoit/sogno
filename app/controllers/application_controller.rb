@@ -12,4 +12,11 @@ class ApplicationController < ActionController::Base
 	end
   end
 
+
+  def current_user
+    @current_user ||= session['cas']['user'] #&& User.find_by_id(session[:current_user_id]) # Use find_by_id to get nil instead of an error if user doesn't exist
+  end
+
+  helper_method :current_user 
+
 end
