@@ -3,5 +3,5 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready ->
-	$('#instance_list').html("Loading instance list")
+	$('#instance_list').html("<img src='/assets/spinner.gif'/>")
 	$('#instance_list').load("instance_table/stopped")

@@ -2,6 +2,10 @@ class Ec2::Instance
 
 	attr_reader :raw
 
+	def self.required_tags
+		['Billing', 'FQDN', 'Contact', 'Service']
+	end
+
 	def initialize( instance )
 		@raw = instance
 	end
@@ -22,6 +26,8 @@ class Ec2::Instance
 			val = val.gsub /"$/, ''
 			val.strip
 		end
+	rescue 
+		""
 	end
 
 end
