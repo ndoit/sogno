@@ -1,11 +1,11 @@
 %table#instance_list.table.table-striped.table-hover.table-bordered.tablesorter
 	%thead
 		%tr
-			%th Name
-			%th Instance ID
+			%th{data: {priority: 'critical'}} Name
+			%th{data: {priority: 'critical'}} Instance ID
 			- Ec2::Instance.required_tags.each do |tag|
-				%th= tag
-			%th Controls
+				%th{data: {priority: '5'}}= tag
+			%th.filter-false{data: {priority: 'critical'}} Controls
 	%tbody
 		- @instance_list.each do |instance|
 			%tr.instance_row
