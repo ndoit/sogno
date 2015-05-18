@@ -31,7 +31,9 @@ setup_table = (selector) ->
   $("form.wake-up").on "ajax:send", ->
     console.log("ajax sent")
   $("form.wake-up").on "ajax:success", (data, status, xhr) ->
-    $(this).closest('tr').fadeOut()
+    row = $(this).closest('tr')
+    row.find('td').css('background-color', 'lightGreen')
+    row.fadeOut(1000)
     console.log("Instance starting")    
 
 load_instance_state = (state) ->
