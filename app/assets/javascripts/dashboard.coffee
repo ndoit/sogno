@@ -9,7 +9,9 @@ $(document).ready ->
   $('.state-menu li').click ->
     load_instance_state($(this).attr('state'))
 
-
+  #$('div#instance_list').on "ajax:success", "input.wake_up", (data, status, xhr) ->
+  #  $(this).closest('tr').fadeOut()
+  #  console.log("Instance starting")    
 
 
 setup_table = (selector) ->
@@ -23,6 +25,14 @@ setup_table = (selector) ->
       columnSelector_priority : 'data-priority'
     }
   })
+  console.log "setting wakeup handler"
+  $("form.wake-up").click ->
+    console.log("form clicked")
+  $("form.wake-up").on "ajax:send", ->
+    console.log("ajax sent")
+  $("form.wake-up").on "ajax:success", (data, status, xhr) ->
+    $(this).closest('tr').fadeOut()
+    console.log("Instance starting")    
 
 load_instance_state = (state) ->
   $('div#instance_list').html("<img src='/assets/spinner.gif'/>")

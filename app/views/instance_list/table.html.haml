@@ -13,5 +13,4 @@
 				%td.instance_id= instance.id
 				- Ec2::Instance.required_tags.each do |tag|
 					%td= instance.tag_value( tag )
-				%td.controls= button_to "Wake Up", instance_start_path( instance_id: instance.id ), remote: true
-				
+				%td.controls= button_to "Wake Up", instance_start_path( instance_id: instance.id ), remote: true,form_class: "wake-up"
