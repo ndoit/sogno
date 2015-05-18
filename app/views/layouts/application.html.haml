@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %title "HAML'd"
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = javascript_include_tag "columnselector"
+    = csrf_meta_tags
+  %body
+
+    = render "layouts/header" 
+        
+    %div#main
+      = yield
+
+
