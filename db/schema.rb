@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150513171453) do
+ActiveRecord::Schema.define(version: 20150706041112) do
+
+  create_table "activity_logs", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "action"
+    t.string   "detail"
+    t.string   "resource_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "activity_logs", ["user_id"], name: "index_activity_logs_on_user_id"
 
   create_table "sessions", force: :cascade do |t|
     t.string   "session_id", null: false
@@ -24,5 +35,11 @@ ActiveRecord::Schema.define(version: 20150513171453) do
   add_index "sessions", ["cas_ticket"], name: "index_sessions_on_cas_ticket"
   add_index "sessions", ["session_id"], name: "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at"
+
+  create_table "users", force: :cascade do |t|
+    t.string   "username"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

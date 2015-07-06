@@ -9,12 +9,17 @@ class ApplicationController < ActionController::Base
   	if ( !request.session.has_key?("cas") )
   		puts "rendering 401"
   		render status: 401, text: ""
-	end
+	  end
   end
 
 
   def current_user
-    @current_user ||= session['cas']['user'] #&& User.find_by_id(session[:current_user_id]) # Use find_by_id to get nil instead of an error if user doesn't exist
+    username = session['cas']['user']
+    @current_user ||= User.find_by_username( username ) if username
+    if @current_user == nil && username.length
+      @current_user = User.create( username: username )
+    end
+    @current_user
   end
 
   helper_method :current_user 
